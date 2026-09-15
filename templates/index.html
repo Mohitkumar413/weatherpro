@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WeatherPro | Global Weather</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+
+
+   
+    <!-- Animated Background -->
+    <div class="background">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+    </div>
+
+     <!-- Navbar -->
+ <nav class="navbar">
+
+    <div class="logo">
+        🌦️ WeatherPro
+    </div>
+
+    <div class="nav-right">
+        <button id="themeBtn">🌙</button>
+    </div>
+
+</nav>
+
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <div class="badge">
+                🌍 Global Weather Intelligence
+            </div>
+
+            <h1>
+                Weather, <span>Anywhere.</span>
+            </h1>
+
+            <p>
+                Search any city, district, state or country
+                and discover detailed weather information.
+            </p>
+
+
+            <!-- Search -->
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search city, district, state or country..."
+                    autocomplete="off"
+                >
+
+                <button id="searchBtn">
+                    🔍 Search
+                </button>
+
+            </div>
+             <button id="locationBtn" class="location-btn">
+             📍 Use My Location
+              </button>
+            <div id = "suggestions" class="suggestions"></div>
+
+        </section>
+
+
+        <!-- Loading -->
+        <section id="loading" class="loading hidden">
+
+            <div class="loader">
+                <div class="loader-ring"></div>
+                <div class="loader-icon">🌦️</div>
+            </div>
+
+            <h3>Searching the atmosphere...</h3>
+
+            <p>
+                Finding location and fetching weather data
+            </p>
+
+        </section>
+
+
+        <!-- Weather Dashboard -->
+        <section id="weatherDashboard" class="dashboard hidden">
+
+            <!-- Location -->
+            <div class="location-card">
+
+                <div>
+                    <span class="small-title">📍 LOCATION</span>
+
+                    <h2 id="locationName">
+                        Buxar
+                    </h2>
+
+                    <p id="locationDetails">
+                        Bihar, India
+                    </p>
+                </div>
+
+                <div class="location-icon">
+                    🌍
+                </div>
+
+            </div>
+
+
+            <!-- Current Weather -->
+            <div class="current-weather">
+
+                <div class="weather-main">
+
+                    <div class="weather-icon" id="weatherIcon">
+                        ☀️
+                    </div>
+
+                    <div>
+
+                        <div class="temperature">
+                            <span id="temperature">--</span>°C
+                        </div>
+
+                        <div id="condition">
+                            Loading...
+                        </div>
+
+                        <p>
+                            Feels like
+                            <strong>
+                                <span id="feelsLike">--</span>°C
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Weather Details -->
+            <div class="details-grid">
+
+                <div class="weather-card">
+                    <span>💧</span>
+                    <p>Humidity</p>
+                    <h3 id="humidity">--%</h3>
+                </div>
+
+                <div class="weather-card">
+                    <span>💨</span>
+                    <p>Wind Speed</p>
+                    <h3 id="wind">-- km/h</h3>
+                </div>
+
+                <div class="weather-card">
+                    <span>🌧️</span>
+                    <p>Rain</p>
+                    <h3 id="rain">-- mm</h3>
+                </div>
+
+                <div class="weather-card">
+                    <span>☁️</span>
+                    <p>Cloud Cover</p>
+                    <h3 id="cloud">--%</h3>
+                </div>
+
+                <div class="weather-card">
+                    <span>🌡️</span>
+                    <p>Pressure</p>
+                    <h3 id="pressure">-- hPa</h3>
+                </div>
+
+                <div class="weather-card">
+                    <span>☀️</span>
+                    <p>UV Index</p>
+                    <h3 id="uv">--</h3>
+                </div>
+
+                <div class="weather-card">
+                    <span>🌅</span>
+                    <p>Sunrise</p>
+                    <h3 id="sunrise">--:--</h3>
+                </div>
+
+                <div class="weather-card">
+                    <span>🌇</span>
+                    <p>Sunset</p>
+                    <h3 id="sunset">--:--</h3>
+                </div>
+
+               <div class="weather-card">
+                 <span>🧭</span>
+                 <p>Wind Direction</p>
+                 <h3 id="windDirection">--</h3>
+               </div>
+
+                <div class="weather-card">
+                   <span>🕐</span>
+                 <p>Local Time</p>
+                  <h3 id="localTime">--:--</h3>
+                </div>
+
+            </div>
+
+
+            <!-- Forecast -->
+            <div class="forecast-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="small-title">
+                            FORECAST
+                        </span>
+
+                        <h2>7-Day Weather</h2>
+                    </div>
+
+                </div>
+
+                <div id="forecast" class="forecast-grid">
+
+                    <!-- Forecast cards will come from JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Error -->
+        <div id="errorMessage" class="error hidden">
+
+            <span>⚠️</span>
+
+            <div>
+                <strong>Location not found</strong>
+                <p>
+                    Please check the spelling and try again.
+                </p>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            🌦️ WeatherPro • Global Weather Dashboard
+        </p>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
