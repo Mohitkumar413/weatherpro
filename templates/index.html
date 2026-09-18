@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,9 +12,6 @@
 
 <body>
 
-
-
-   
     <!-- Animated Background -->
     <div class="background">
         <div class="cloud cloud1"></div>
@@ -22,18 +19,32 @@
         <div class="cloud cloud3"></div>
     </div>
 
-     <!-- Navbar -->
- <nav class="navbar">
 
-    <div class="logo">
-        🌦️ WeatherPro
-    </div>
+    <!-- Navbar -->
+    <nav class="navbar">
 
-    <div class="nav-right">
-        <button id="themeBtn">🌙</button>
-    </div>
+        <div class="logo">
+            🌦️ WeatherPro
+        </div>
 
-</nav>
+        <!-- Navigation -->
+        <div class="nav-links">
+
+            <a href="/" class="nav-link active">
+                Home
+            </a>
+
+            <a href="/about" class="nav-link">
+                About
+            </a>
+
+        </div>
+
+        <div class="nav-right">
+            <button id="themeBtn">🌙</button>
+        </div>
+
+    </nav>
 
 
     <!-- Main Container -->
@@ -71,10 +82,16 @@
                 </button>
 
             </div>
-             <button id="locationBtn" class="location-btn">
-             📍 Use My Location
-              </button>
-            <div id = "suggestions" class="suggestions"></div>
+
+
+            <!-- Location Button -->
+            <button id="locationBtn" class="location-btn">
+                📍 Use My Location
+            </button>
+
+
+            <!-- Suggestions -->
+            <div id="suggestions" class="suggestions"></div>
 
         </section>
 
@@ -87,7 +104,9 @@
                 <div class="loader-icon">🌦️</div>
             </div>
 
-            <h3>Searching the atmosphere...</h3>
+            <h3>
+                Searching the atmosphere...
+            </h3>
 
             <p>
                 Finding location and fetching weather data
@@ -99,11 +118,15 @@
         <!-- Weather Dashboard -->
         <section id="weatherDashboard" class="dashboard hidden">
 
+
             <!-- Location -->
             <div class="location-card">
 
                 <div>
-                    <span class="small-title">📍 LOCATION</span>
+
+                    <span class="small-title">
+                        📍 LOCATION
+                    </span>
 
                     <h2 id="locationName">
                         Buxar
@@ -112,6 +135,7 @@
                     <p id="locationDetails">
                         Bihar, India
                     </p>
+
                 </div>
 
                 <div class="location-icon">
@@ -142,6 +166,7 @@
 
                         <p>
                             Feels like
+
                             <strong>
                                 <span id="feelsLike">--</span>°C
                             </strong>
@@ -157,65 +182,156 @@
             <!-- Weather Details -->
             <div class="details-grid">
 
+
                 <div class="weather-card">
+
                     <span>💧</span>
-                    <p>Humidity</p>
-                    <h3 id="humidity">--%</h3>
+
+                    <p>
+                        Humidity
+                    </p>
+
+                    <h3 id="humidity">
+                        --%
+                    </h3>
+
                 </div>
 
+
                 <div class="weather-card">
+
                     <span>💨</span>
-                    <p>Wind Speed</p>
-                    <h3 id="wind">-- km/h</h3>
+
+                    <p>
+                        Wind Speed
+                    </p>
+
+                    <h3 id="wind">
+                        -- km/h
+                    </h3>
+
                 </div>
 
+
                 <div class="weather-card">
+
                     <span>🌧️</span>
-                    <p>Rain</p>
-                    <h3 id="rain">-- mm</h3>
+
+                    <p>
+                        Rain
+                    </p>
+
+                    <h3 id="rain">
+                        -- mm
+                    </h3>
+
                 </div>
 
+
                 <div class="weather-card">
+
                     <span>☁️</span>
-                    <p>Cloud Cover</p>
-                    <h3 id="cloud">--%</h3>
+
+                    <p>
+                        Cloud Cover
+                    </p>
+
+                    <h3 id="cloud">
+                        --%
+                    </h3>
+
                 </div>
 
+
                 <div class="weather-card">
+
                     <span>🌡️</span>
-                    <p>Pressure</p>
-                    <h3 id="pressure">-- hPa</h3>
+
+                    <p>
+                        Pressure
+                    </p>
+
+                    <h3 id="pressure">
+                        -- hPa
+                    </h3>
+
                 </div>
 
+
                 <div class="weather-card">
+
                     <span>☀️</span>
-                    <p>UV Index</p>
-                    <h3 id="uv">--</h3>
+
+                    <p>
+                        UV Index
+                    </p>
+
+                    <h3 id="uv">
+                        --
+                    </h3>
+
                 </div>
 
+
                 <div class="weather-card">
+
                     <span>🌅</span>
-                    <p>Sunrise</p>
-                    <h3 id="sunrise">--:--</h3>
+
+                    <p>
+                        Sunrise
+                    </p>
+
+                    <h3 id="sunrise">
+                        --:--
+                    </h3>
+
                 </div>
 
+
                 <div class="weather-card">
+
                     <span>🌇</span>
-                    <p>Sunset</p>
-                    <h3 id="sunset">--:--</h3>
+
+                    <p>
+                        Sunset
+                    </p>
+
+                    <h3 id="sunset">
+                        --:--
+                    </h3>
+
                 </div>
 
-               <div class="weather-card">
-                 <span>🧭</span>
-                 <p>Wind Direction</p>
-                 <h3 id="windDirection">--</h3>
-               </div>
 
                 <div class="weather-card">
-                   <span>🕐</span>
-                 <p>Local Time</p>
-                  <h3 id="localTime">--:--</h3>
+
+                    <span>🧭</span>
+
+                    <p>
+                        Wind Direction
+                    </p>
+
+                    <h3 id="windDirection">
+                        --
+                    </h3>
+
                 </div>
+
+
+                <div class="weather-card">
+
+                    <span>🕐</span>
+
+                    <p>
+                        Local Time
+                    </p>
+
+                    <h3 id="localTime">
+                        --:--
+                    </h3>
+
+                </div>
+
 
             </div>
 
@@ -226,14 +342,19 @@
                 <div class="section-heading">
 
                     <div>
+
                         <span class="small-title">
                             FORECAST
                         </span>
 
-                        <h2>7-Day Weather</h2>
+                        <h2>
+                            7-Day Weather
+                        </h2>
+
                     </div>
 
                 </div>
+
 
                 <div id="forecast" class="forecast-grid">
 
@@ -252,10 +373,15 @@
             <span>⚠️</span>
 
             <div>
-                <strong>Location not found</strong>
+
+                <strong>
+                    Location not found
+                </strong>
+
                 <p>
                     Please check the spelling and try again.
                 </p>
+
             </div>
 
         </div>
@@ -263,6 +389,7 @@
     </main>
 
 
+    <!-- Footer -->
     <footer>
 
         <p>
@@ -272,6 +399,7 @@
     </footer>
 
 
+    <!-- JavaScript -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
