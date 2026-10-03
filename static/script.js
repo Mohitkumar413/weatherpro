@@ -1232,3 +1232,38 @@ requestAnimationFrame(animateWeatherParticles);
 
 
 
+
+
+
+
+
+/* =================================
+   QUICK LINKS SMOOTH SCROLL
+   ================================= */
+
+document.querySelectorAll('.quick-links a').forEach(link => {
+
+    link.addEventListener('click', function (e) {
+
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+
+        if (target) {
+
+            const offset = 80;
+
+            const targetPosition =
+                target.getBoundingClientRect().top +
+                window.pageYOffset -
+                offset;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+
+});
