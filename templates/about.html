@@ -76,7 +76,7 @@
 
     <!-- ================= ABOUT PROJECT ================= -->
 
-    <section class="about-section">
+    <section class="about-section" id="about-project">
 
         <div class="about-heading">
 
@@ -121,7 +121,7 @@
 
     <!-- ================= FEATURES ================= -->
 
-    <section class="features-section">
+    <section class="features-section" id="features">
 
         <div class="about-heading">
 
@@ -287,7 +287,7 @@
 
     <!-- ================= TECHNOLOGY ================= -->
 
-    <section class="technology-section">
+    <section class="technology-section" id="technology">
 
         <div class="about-heading">
 
@@ -363,7 +363,7 @@
 
     <!-- ================= DEVELOPER ================= -->
 
-    <section class="developer-section">
+    <section class="developer-section" id="developer">
 
         <div class="about-heading">
 
@@ -384,16 +384,16 @@
                 <div class="photo-ring"></div>
 
                 <img
-                    src="{{ url_for('static', filename='profile.jpeg') }}"
+                    src="{{ url_for('static', filename='my image.jpeg') }}"
                     alt="Developer"
                     class="developer-photo">
 
             </div>
 
 
-            <div class="developer-info">
+            <div class="developer-info" id="developer">
 
-                <span class="developer-label">
+                <span class="developer-label" >
                     Developer
                 </span>
 
@@ -439,6 +439,18 @@
     <!-- ================= FOOTER ================= -->
 
     <footer class="about-footer">
+
+
+
+    <div class="quick-links">
+        <h3>Quick Links</h3>
+
+        <a href="#about-project">About WeatherPro</a>
+        <a href="#features">Features</a>
+        <a href="#technology">Technology</a>
+        <a href="#developer">Developer</a>
+    </div>
+
 
         <p>
             © 2026 WeatherPro. Built with ❤️ using

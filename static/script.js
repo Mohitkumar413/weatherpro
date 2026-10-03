@@ -976,11 +976,6 @@ function getCurrentLocation() {
 
 
 
-
-
-
-
-
 // ========================================
 // AUTOMATIC LOCATION ON WEBSITE OPEN
 // ========================================
@@ -1092,3 +1087,148 @@ window.addEventListener("scroll", () => {
 
 });
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   WEATHERPRO PREMIUM PARTICLE ANIMATION
+   ========================================= */
+
+const bgCanvas = document.createElement("canvas");
+
+bgCanvas.id = "weatherParticles";
+
+document.querySelector(".background").appendChild(bgCanvas);
+
+const bgCtx = bgCanvas.getContext("2d");
+
+let bgWidth;
+let bgHeight;
+
+const particles = [];
+
+function resizeWeatherCanvas() {
+    bgWidth = window.innerWidth;
+    bgHeight = window.innerHeight;
+
+    bgCanvas.width = bgWidth;
+    bgCanvas.height = bgHeight;
+}
+
+function createWeatherParticles() {
+
+    particles.length = 0;
+
+    const totalParticles = window.innerWidth < 600 ? 35 : 70;
+
+    for (let i = 0; i < totalParticles; i++) {
+
+        particles.push({
+            x: Math.random() * bgWidth,
+            y: Math.random() * bgHeight,
+
+            size: Math.random() * 1.5 + 0.4,
+
+            speed: Math.random() * 0.35 + 0.08,
+
+            opacity: Math.random() * 0.6 + 0.2,
+
+            phase: Math.random() * Math.PI * 2
+        });
+    }
+}
+
+function animateWeatherParticles(time) {
+
+    bgCtx.clearRect(0, 0, bgWidth, bgHeight);
+
+    particles.forEach(p => {
+
+        p.y -= p.speed;
+
+        p.x += Math.sin(
+            time * 0.0005 + p.phase
+        ) * 0.15;
+
+        if (p.y < -10) {
+            p.y = bgHeight + 10;
+            p.x = Math.random() * bgWidth;
+        }
+
+        const pulse =
+            0.65 +
+            Math.sin(time * 0.002 + p.phase) * 0.35;
+
+        /* Soft glow */
+
+        bgCtx.beginPath();
+
+        bgCtx.arc(
+            p.x,
+            p.y,
+            p.size * 4,
+            0,
+            Math.PI * 2
+        );
+
+        bgCtx.fillStyle =
+            `rgba(40,210,255,${p.opacity * 0.08})`;
+
+        bgCtx.fill();
+
+        /* Main particle */
+
+        bgCtx.beginPath();
+
+        bgCtx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI * 2
+        );
+
+        bgCtx.fillStyle =
+            `rgba(190,240,255,${p.opacity * pulse})`;
+
+        bgCtx.fill();
+
+    });
+
+    requestAnimationFrame(animateWeatherParticles);
+}
+
+resizeWeatherCanvas();
+
+createWeatherParticles();
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        resizeWeatherCanvas();
+
+        createWeatherParticles();
+
+    },
+    { passive: true }
+);
+
+requestAnimationFrame(animateWeatherParticles);
+
+
+
+
+
+

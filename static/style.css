@@ -1,5 +1,4 @@
 
-
 /* ================================
    WEATHERPRO - PREMIUM UI
 ================================ */
@@ -2661,29 +2660,6 @@ body.light-mode .about-footer {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 
 /* ================================
@@ -4003,3 +3979,70 @@ VERY SMALL MOBILE
 }
 
 }
+ 
+
+
+
+
+
+/* =================================
+   PREMIUM WEATHERPRO PAGE REVEAL
+   ================================= */
+
+body {
+    opacity: 0;
+    transform: scale(0.985);
+    animation: weatherPageReveal 1s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.navbar {
+    opacity: 0;
+    animation: revealDown 0.7s cubic-bezier(.22, 1, .36, 1) 0.15s forwards;
+}
+
+.hero {
+    opacity: 0;
+    animation: revealUp 0.9s cubic-bezier(.22, 1, .36, 1) 0.25s forwards;
+}
+
+.weather-dashboard {
+    opacity: 0;
+    animation: revealUp 0.9s cubic-bezier(.22, 1, .36, 1) 0.4s forwards;
+}
+
+@keyframes weatherPageReveal {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes revealDown {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
