@@ -105,7 +105,7 @@
             </div>
 
             <h3>
-                Searching the atmosphere...
+                Please wait...
             </h3>
 
             <p>
@@ -157,8 +157,13 @@
                     <div>
 
                         <div class="temperature">
-                            <span id="temperature">--</span>°C
+                            <span id="temperature">--</span><span id="temperatureUnit">°C</span>
                         </div>
+
+                        <div class="unit-selector">
+    <button id="celsiusBtn" class="unit-btn active">°C</button>
+    <button id="fahrenheitBtn" class="unit-btn">°F</button>
+</div>
 
                         <div id="condition">
                             Loading...
@@ -168,7 +173,7 @@
                             Feels like
 
                             <strong>
-                                <span id="feelsLike">--</span>°C
+                                <span id="feelsLike">--</span><span id="feelsLikeUnit">°C</span>
                             </strong>
                         </p>
 

@@ -4095,3 +4095,75 @@ VERY SMALL MOBILE
         font-size: 16px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================
+   TEMPERATURE UNIT SELECTOR
+   ================================= */
+
+.unit-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    padding: 4px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.unit-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    padding: 6px 12px;
+    border-radius: 22px;
+
+    background: transparent;
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.unit-btn:hover {
+    color: #fff;
+}
+
+.unit-btn.active {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 600px) {
+    .unit-selector {
+        margin-top: 8px;
+    }
+
+    .unit-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}

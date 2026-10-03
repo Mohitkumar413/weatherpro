@@ -414,23 +414,13 @@ const localTime =
 
 document.getElementById("localTime").textContent =
     formatTime(localTime);
+ 
+     // Store original Celsius temperatures
+          currentTemperatureC = current.temperature_2m;
+           currentFeelsLikeC = current.apparent_temperature;
 
-
-        document.getElementById(
-            "temperature"
-        ).textContent =
-            Math.round(
-                current.temperature_2m
-            );
-
-
-        document.getElementById(
-            "feelsLike"
-        ).textContent =
-            Math.round(
-                current.apparent_temperature
-            );
-
+// Display according to selected unit
+ updateTemperatureDisplay();
 
         document.getElementById(
             "humidity"
@@ -529,6 +519,8 @@ document.getElementById("localTime").textContent =
         errorMessage.classList.remove(
             "hidden"
         );
+
+        updateUnitLabels();
 
     }
 
@@ -1267,3 +1259,153 @@ document.querySelectorAll('.quick-links a').forEach(link => {
     });
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ========================================
+// TEMPERATURE UNIT: °C / °F
+// ========================================
+
+let currentUnit = "C";
+let currentTemperatureC = null;
+let currentFeelsLikeC = null;
+let currentWeatherData = null;
+
+
+// Convert Celsius → Fahrenheit
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9 / 5) + 32;
+}
+
+
+// Update displayed temperatures
+function updateTemperatureDisplay() {
+
+    if (
+        currentTemperatureC === null ||
+        currentFeelsLikeC === null
+    ) {
+        return;
+    }
+
+    let temperature;
+    let feelsLike;
+
+    if (currentUnit === "F") {
+
+        temperature =
+            celsiusToFahrenheit(currentTemperatureC);
+
+        feelsLike =
+            celsiusToFahrenheit(currentFeelsLikeC);
+
+    } else {
+
+        temperature =
+            currentTemperatureC;
+
+        feelsLike =
+            currentFeelsLikeC;
+    }
+
+
+    document.getElementById("temperature").textContent =
+        Math.round(temperature);
+
+    document.getElementById("feelsLike").textContent =
+        Math.round(feelsLike);
+
+
+    // Update 7-day forecast
+    if (currentWeatherData) {
+        createForecast(currentWeatherData);
+    }
+}
+
+
+// °C button
+const celsiusBtn =
+    document.getElementById("celsiusBtn");
+
+
+// °F button
+const fahrenheitBtn =
+    document.getElementById("fahrenheitBtn");
+
+
+if (celsiusBtn) {
+
+    celsiusBtn.addEventListener("click", function () {
+
+        currentUnit = "C";
+
+        celsiusBtn.classList.add("active");
+
+        if (fahrenheitBtn) {
+            fahrenheitBtn.classList.remove("active");
+        }
+         document.getElementById("temperatureUnit").textContent = "°C";
+         document.getElementById("feelsLikeUnit").textContent = "°C";
+
+        updateTemperatureDisplay();
+
+    });
+}
+
+
+if (fahrenheitBtn) {
+
+    fahrenheitBtn.addEventListener("click", function () {
+
+        currentUnit = "F";
+
+        fahrenheitBtn.classList.add("active");
+
+        if (celsiusBtn) {
+            celsiusBtn.classList.remove("active");
+        }
+         
+
+        document.getElementById("temperatureUnit").textContent = "°F";
+        document.getElementById("feelsLikeUnit").textContent = "°F";
+         updateTemperatureDisplay();
+
+    });
+}
+
+
+
+
+
+
+function updateUnitLabels() {
+
+    const temperatureUnit =
+        document.getElementById("temperatureUnit");
+
+    const feelsLikeUnit =
+        document.getElementById("feelsLikeUnit");
+
+    const unit = currentUnit === "F" ? "°F" : "°C";
+
+    if (temperatureUnit) {
+        temperatureUnit.textContent = unit;
+    }
+
+    if (feelsLikeUnit) {
+        feelsLikeUnit.textContent = unit;
+    }
+}
